@@ -1,0 +1,53 @@
+// fix: no transparent backgrounds
+$table-accent-bg: #F2F2F2;
+
+@import "~bootstrap/scss/bootstrap.scss";
+
+// fix: backgrounds on td, not on tr!
+.table-striped {
+  tbody tr:nth-of-type(#{$table-striped-order}) {
+    background-color: unset;
+  }
+  tbody tr:nth-of-type(#{$table-striped-order}) td {
+    background-color: $table-accent-bg;
+  }
+}
+
+// fix: border on wrapper, not on table
+.example-table {
+  .table-bordered {
+    border: none;
+  }
+  .react-infinite-table-wrapper {
+    border: $table-border-width solid $table-border-color;
+  }
+}
+
+.example-table {
+  td, th {
+    padding: 10px 5px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  tbody tr.tr-selected td {
+    background-color: $primary;
+    border-color: $primary;
+    color: $white;
+  }
+}
+
+h2 {
+  padding-top: 10px;
+}
+
+.settings {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  
+  > div {
+    padding-top: 10px;
+  }
+}
